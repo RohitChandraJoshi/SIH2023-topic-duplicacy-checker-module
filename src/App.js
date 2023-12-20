@@ -19,27 +19,29 @@ function App() {
     axios.get(`http://localhost:8080/get-google-scholar-results?topic=${encodeURIComponent(enteredTopic)}`)
       .then((response) => {
         const googleScholarResults = response.data.results;
-
+  
         const existingTopics = googleScholarResults.map(result => result.title);
-
+        const links = googleScholarResults.map(result => result.link);
         let highestSimilarity = 0;
         let similarTopicsList = [];
-
-        for (const existingTopic of existingTopics) {
+  
+        for (let i = 0; i < existingTopics.length; i++) {
+          const existingTopic = existingTopics[i];
           const similarityValue = compareTwoStrings(enteredTopic, existingTopic);
-
+  
+          if (similarityValue >= 0.6) {
+            similarTopicsList.push({ topic: existingTopic, link: links[i] });
+          }
+  
           if (similarityValue > highestSimilarity) {
             highestSimilarity = similarityValue;
-            similarTopicsList = [existingTopic];
-          } else if (similarityValue === highestSimilarity) {
-            similarTopicsList.push(existingTopic);
           }
         }
-
+  
         const similarityPercentage = highestSimilarity * 100;
         setSimilarity(similarityPercentage);
-
-        if (similarityPercentage >= 70) {
+  
+        if (similarTopicsList.length > 0) {
           setTopicSubmitted(false);
           setSimilarTopics(similarTopicsList);
           setModalIsOpen(true);
@@ -70,7 +72,9 @@ function App() {
         console.error('Error fetching Google Scholar results:', error);
       });
   };
-
+  
+  
+  
   return (
     <div className="container">
       <h3 className="display-4">Submit your Unique Topic</h3>
@@ -95,7 +99,7 @@ function App() {
           <option value="" disabled>Select a Guide</option>
           <option value="Dr Sandeep Kumar">Dr Sandeep Kumar</option>
           <option value="Dr Vishal Jain">Dr Vishal Jain</option>
-          <option value="Ms Akanksha">Ms Akanksha</option>
+          <option value="Ms Akanksha">Ms Rani Astya</option>
           <option value="Ms Kanika">Ms Kanika</option>
           <option value="Ms Preeti Dubey">Ms Preeti Dubey</option>
         </select>
@@ -131,26 +135,36 @@ function App() {
       )}
       
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
-      >
-        <h2>Topic similarity is too high!</h2>
-        {similarity !== null && (
-          <div>
-            <p>Similarity: {similarity.toFixed(2)}%</p>
-          </div>
-        )}
-        <p>Please choose a different topic.</p>
-        <p>Similar Topics:</p>
-        <ul>
-          {similarTopics.map((topic, index) => (
-            <li key={index}>{topic}</li>
-          ))}
-        </ul>
-        <button className="btn btn-secondary" onClick={() => setModalIsOpen(false)}>
-          Close
-        </button>
-      </Modal>
+  isOpen={modalIsOpen}
+  onRequestClose={() => setModalIsOpen(false)}
+>
+  <h2>Topic similarity is too high!</h2>
+  {similarity !== null && (
+    <div>
+      <p>Similarity: {similarity.toFixed(2)}%</p>
+    </div>
+  )}
+  <p>Following are the similar topics, you can follow the links and get detail inofrmation about articals.</p>
+  <ul>
+    {similarTopics.map((item, index) => (
+      <li key={index}>
+        <p>Topic: {item.topic}</p>
+        <p>Link: <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></p>
+      </li>
+    ))}
+  </ul>
+  {/* Add the link outside the <ul> */}
+  <p>Explore more topics on Google Scholar: <a href={`https://scholar.google.com/scholar?q=${enteredTopic}`} target="_blank" rel="noopener noreferrer">Go to Google Scholar</a></p>
+  <button className="btn btn-secondary" onClick={() => setModalIsOpen(false)}>
+    Close
+  </button>
+</Modal>
+
+
+
+
+
+
     </div>
   );
 }

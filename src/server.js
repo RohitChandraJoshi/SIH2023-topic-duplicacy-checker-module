@@ -40,8 +40,9 @@ server.get('/get-google-scholar-results', async (req, res) => {
       const title = $(element).find('.gs_rt').text().trim();
       const authors = $(element).find('.gs_a').text().trim();
       const snippet = $(element).find('.gs_rs').text().trim();
+      const link = $(element).find('.gs_rt a').attr('href');
 
-      results.push({ title, authors, snippet });
+      results.push({ title, authors, snippet, link });
     });
 
     res.json({ success: true, results });
@@ -50,6 +51,7 @@ server.get('/get-google-scholar-results', async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 });
+
 
 server.get('/get-random-topic', async (req, res) => {
   try {
@@ -72,7 +74,7 @@ server.post('/submit-topic', async (req, res) => {
     let isSimilar = false;
     for (const existingTopic of existingTopics) {
       const similarity = compareTwoStrings(submittedTopic, existingTopic.topic);
-      if (similarity >= 0.7) {
+      if (similarity >= 0.6) {
         isSimilar = true;
         break;
       }
