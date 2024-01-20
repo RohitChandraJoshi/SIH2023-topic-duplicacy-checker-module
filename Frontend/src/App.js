@@ -79,6 +79,9 @@ function App() {
   };
 
   return (
+    <div className='container'>
+      <h1>Topic Duplicacy Checker</h1>
+      <h2>Check Plagiarism in Your Research Topic</h2>
     <div className="app-container">
       <h3 className="app-header" >Submit your Unique Topic</h3>
       <div className="form-group">
@@ -102,7 +105,7 @@ function App() {
           <option value="" disabled>
             Select a Guide
           </option>
-          <option value="Dr Mohit Agrawal">Dr Anil Kumar</option>
+          <option value="Dr Mohit Agrawal">Dr Mohit Agrawal</option>
           <option value="Dr Sandeep Kumar">Dr Sandeep Kumar</option>
           <option value="Dr Vishal Jain">Dr Vishal Jain</option>
           <option value="Dr Anil Kumar">Dr Anil Kumar</option>
@@ -112,7 +115,7 @@ function App() {
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="specializationSelect"style={{fontSize:'17px', fontWeight:'bold'}}>Select Specialization:</label>
+        <label htmlFor="specializationSelect"style={{fontSize:'17px'}}>Select Specialization:</label>
         <select
           className="form-control"
           id="specializationSelect"
@@ -177,6 +180,7 @@ function App() {
         </button>
         </div>
       </Modal>
+      </div>
     </div>
   );
 }

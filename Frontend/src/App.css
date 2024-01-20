@@ -26,7 +26,29 @@ body.modal-open {
  
   transition: color 0.3s, text-shadow 0.3s;
 }
+.container h1 {
+  font-weight: bold;
+  font-size: 2.9em;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg,#C33764  , #1D2671);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease-in-out;
+}
 
+.container h1:hover {
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.8));
+}
+.container h2{
+  text-align: center;
+  font-size: 30px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+ 
+  transition: color 0.3s, text-shadow 0.3s;
+}
 .form-group {
   margin-bottom: 25px;
 }
@@ -132,7 +154,13 @@ body.modal-open {
     width: 90%;
     padding: 10px;
   }
+  .container h1 {
+    font-size: 2em; /* Further adjust font size for smaller screens if needed */
+  }
 
+  .container h2 {
+    font-size: 18px; /* Further adjust font size for smaller screens if needed */
+  }
   .app-header {
     font-size: 24px;
   }
