@@ -16,7 +16,7 @@ function App() {
 
   const handleCompare = () => {
     axios
-      .get(`http://localhost:8080/get-google-scholar-results?topic=${encodeURIComponent(enteredTopic)}`)
+      .get(`https://sih-topic-duplicacy-checker.onrender.com/get-google-scholar-results?topic=${encodeURIComponent(enteredTopic)}`)
       .then((response) => {
         const googleScholarResults = response.data.results;
 
@@ -47,7 +47,7 @@ function App() {
           setModalIsOpen(true);
         } else {
           axios
-            .post('http://localhost:8080/submit-topic', {
+            .post('https://sih-topic-duplicacy-checker.onrender.com/submit-topic', {
               topic: enteredTopic,
               guide: selectedGuide,
               specialization: selectedSpecialization,
