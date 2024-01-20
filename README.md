@@ -1,3 +1,19 @@
+<div align="center">
+
+# Explore the Topic Duplicacy Checker by entering your details. See a screenshot below.
+
+</div>
+
+![image](https://github.com/RohitChandraJoshi/topic-duplicacy/assets/102249718/a808fa0f-a226-4aa2-9d59-74926377717b)
+
+<div align="center">
+
+# Results after entering details.
+
+</div>
+
+![image](https://github.com/RohitChandraJoshi/topic-duplicacy/assets/102249718/1781bdf9-1a1e-4b61-94b6-c6ac4dbd0971)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
