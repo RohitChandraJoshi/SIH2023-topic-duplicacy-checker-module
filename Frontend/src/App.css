@@ -1,7 +1,6 @@
-/* App.css */
 
 body.modal-open {
-  overflow: hidden; /* Prevent scrolling on the body when the modal is open */
+  overflow: hidden;
 }
 
 .app-container {
@@ -15,7 +14,7 @@ body.modal-open {
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(225, 150, 10, 0.1);
-  border: 2px solid #f79e0f; /* Border around the entire content */
+  border: 2px solid #f79e0f; 
   z-index: 1;
 }
 
@@ -23,7 +22,7 @@ body.modal-open {
   text-align: center;
   font-size: 30px;
   color: #333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a subtle text shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
  
   transition: color 0.3s, text-shadow 0.3s;
 }
@@ -36,20 +35,20 @@ body.modal-open {
   width: 90%;
   padding: 10px;
   font-size: 17px;
-  border: 1px solid #00000046; /* Border around the input boxes */
+  border: 1px solid #00000046; 
   border-radius: 4px;
-  transition: border-color 0.3s; /* Add transition for smooth hover effect */
+  transition: border-color 0.3s; 
 }
 
 .form-control-select {
   width: 100%;
 }
 .form-control:hover {
-  border-color: #f79e0f; /* Glow effect on hover */
+  border-color: #f79e0f; 
 }
 .compare-btn-container {
   text-align: center;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px; 
 }
 
 .compare-btn {
@@ -61,7 +60,7 @@ body.modal-open {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s; /* Add transition for smooth hover effect */
+  transition: background-color 0.3s; 
 }
 
 .compare-btn:hover {
@@ -86,8 +85,8 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Set a higher stacking order for the modal */
-  backdrop-filter: blur(5px); /* Apply a blur effect to the modal background */
+  z-index: 2; 
+  backdrop-filter: blur(5px); 
 }
 
 .custom-overlay {
@@ -97,34 +96,77 @@ body.modal-open {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Ensure the overlay is below the modal */
+  z-index: 1; 
 }
 .custom-modal h2{
   color: red;
   text-align: center;
 }
 .custom-modal p {
-  font-size: 17px; /* Set font size to 16px for <p> elements in the modal */
+  font-size: 17px; 
 }
 
 .custom-modal ul {
-  font-size: 17px; /* Set font size to 15px for <ul> elements in the modal */
+  font-size: 17px; 
 }
 
 .custom-modal li {
-  font-size: 17px; /* Set font size to 15px for <li> elements in the modal */
+  font-size: 17px; 
 }
 .close-btn {
   background-color: #007bff;
   color: #fff;
-  padding: 12px 24px; /* Adjust padding as needed */
-  font-size: 18px; /* Adjust font size as needed */
+  padding: 12px 24px; 
+  font-size: 18px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s; /* Add transition for smooth hover effect */
+  transition: background-color 0.3s;
 }
 
 .close-btn:hover {
   background-color: #0056b3;
+}
+@media (max-width: 600px) {
+  .app-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .app-header {
+    font-size: 24px;
+  }
+
+  .form-control {
+    width: 90%;
+  }
+
+  .compare-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .result-text {
+    font-size: 16px;
+  }
+
+  .custom-modal {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .custom-modal h2 {
+    font-size: 20px;
+  }
+
+  .custom-modal p,
+  .custom-modal ul,
+  .custom-modal li {
+    font-size: 14px;
+  }
+
+  .close-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 }

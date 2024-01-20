@@ -102,8 +102,10 @@ function App() {
           <option value="" disabled>
             Select a Guide
           </option>
+          <option value="Dr Mohit Agrawal">Dr Anil Kumar</option>
           <option value="Dr Sandeep Kumar">Dr Sandeep Kumar</option>
           <option value="Dr Vishal Jain">Dr Vishal Jain</option>
+          <option value="Dr Anil Kumar">Dr Anil Kumar</option>
           <option value="Ms Rani Astya">Ms Rani Astya</option>
           <option value="Ms Kanika">Ms Kanika</option>
           <option value="Ms Preeti Dubey">Ms Preeti Dubey</option>
@@ -124,7 +126,7 @@ function App() {
           <option value="Community Medicine">Community Medicine</option>
           <option value="Dental Surgery">Dental Surgery</option>
           <option value="Emergency Medicine">Emergency Medicine</option>
-          {/* Add more options as needed */}
+          
         </select>
       </div>
       <div className = "compare-btn-container" >
@@ -139,7 +141,9 @@ function App() {
       )}
       {topicSubmitted && (
         <div>
-          <p className="result-text">Topic submitted successfully!</p>
+          
+          <p className="result-text" style={{color:'green'}}>Similarity is less than 60%, Topic submitted successfully!</p>
+
         </div>
       )}
 

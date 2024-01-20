@@ -1,4 +1,4 @@
-// server.js
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -10,7 +10,7 @@ const { compareTwoStrings } = require('string-similarity');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/research_topics', { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
   console.log('db connected');
 }
 
@@ -23,7 +23,7 @@ const researchTopicSchema = new mongoose.Schema({
 const ResearchTopic = mongoose.model('ResearchTopic', researchTopicSchema);
 
 const server = express();
-
+const PORT = process.env.PORT || 8080;
 server.use(cors());
 server.use(bodyParser.json());
 
@@ -100,7 +100,6 @@ server.post('/submit-topic', async (req, res) => {
 
 server.get('/get-topics', async (req, res) => {
   try {
-    // Fetch all topics from the MongoDB database
     const topics = await ResearchTopic.find({}, 'topic');
     res.json({ topics });
   } catch (error) {
