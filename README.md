@@ -4,7 +4,8 @@
 
 </div>
 
-![image](https://github.com/RohitChandraJoshi/SIH2023-topic-duplicacy-checker-module/assets/102249718/95e8d65b-f9b5-4f37-ba35-28e9bfced899)
+![image](https://github.com/RohitChandraJoshi/SIH2023-topic-duplicacy-checker-module/assets/102249718/a0c02448-647d-4e1d-bdf8-c87d44808b60)
+
 
 <div align="center">
   
@@ -12,7 +13,8 @@
 
 </div>
 
-![image](https://github.com/RohitChandraJoshi/SIH2023-topic-duplicacy-checker-module/assets/102249718/cfb74bd3-7a5a-4f94-ada7-85133fa9b928)
+![image](https://github.com/RohitChandraJoshi/SIH2023-topic-duplicacy-checker-module/assets/102249718/9796d4e6-4f44-4613-9877-2f9ceb10414b)
+
 
 
 # Getting Started with Create React App
